@@ -79,7 +79,7 @@ public class TestGameBoard extends TestCase {
 
         System.out.println(gb3.toString());
 
-        assertTrue(gb3.checkForWinnerDiagonal() == 2);
+        assertTrue(gb3.checkForWinnerDiagonalDownwards() == 2);
 
         //System.out.println(gb3.toString());
     }

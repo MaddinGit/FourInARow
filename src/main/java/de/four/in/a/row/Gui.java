@@ -34,11 +34,11 @@ class Gui extends JPanel implements ActionListener, MouseListener {
                 gb.insert(getFieldPos());
                 repaint();
 
-                if (gb.checkForWinnerVertical() == 1  || gb.checkForWinnerHorizontal() == 1 || gb.checkForWinnerDiagonal() == 1) {
+                if (gb.checkForWinnerVertical() == 1  || gb.checkForWinnerHorizontal() == 1 || gb.checkForWinnerDiagonalUpwards() == 1  || gb.checkForWinnerDiagonalDownwards() == 1) {
                     JOptionPane.showMessageDialog(null, "Red Wins!");
                     gb.fillZeroes();
                 }
-                if (gb.checkForWinnerVertical() == 2 || gb.checkForWinnerHorizontal() == 2 || gb.checkForWinnerDiagonal() == 2) {
+                if (gb.checkForWinnerVertical() == 2 || gb.checkForWinnerHorizontal() == 2 || gb.checkForWinnerDiagonalUpwards() == 2 || gb.checkForWinnerDiagonalDownwards() == 2) {
 
                     JOptionPane.showMessageDialog(null, "Blue Wins!");
                     gb.fillZeroes();

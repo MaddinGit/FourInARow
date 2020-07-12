@@ -318,7 +318,7 @@ public class GameBoard extends Token {
     }
 
     /** Check for diagonal upwards */
-    public int checkForWinnerDiagonal() {
+    public int checkForWinnerDiagonalUpwards() {
         ms = new MoebiusStripCoordinate();
 
         for (int x = 0; x < getX(); x++) {
@@ -384,37 +384,15 @@ public class GameBoard extends Token {
             }
         }
 
+        return 0;
+    }
+
+    public int checkForWinnerDiagonalDownwards() {
+        ms = new MoebiusStripCoordinate();
         /** Check for diagonal downwards */
         for (int x = 0; x < getX(); x++) {
-            for (int y = getY() - 1; y >= 4; y--) {
-                if (y > 4) {
-                    int red = 1;
-                    int blue = 1;
-                    for (int k = 1; k <= 4; k++) {
-                        ms.setX(x - k);
-                        ms.setY(y - k);
-
-                        if (isRedToken(x, y)) {
-                            if (isFollowing(x, y)) {
-                                red++;
-                                if (isWinning(red)) {
-                                    return 1;
-                                }
-                            } else if (isNotFollowing(x, y)) {
-                                red--;
-                            }
-                        } else if (isBlueToken(x, y)) {
-                            if (isFollowing(x, y)) {
-                                blue++;
-                                if (isWinning(blue)) {
-                                    return 2;
-                                }
-                            } else if (isNotFollowing(x, y)) {
-                                blue--;
-                            }
-                        }
-                    }
-                } else {
+            for (int y = getY() - 1; y >= 3; y--) {
+                if (y >= 3) {
                     int red = 0;
                     int blue = 0;
                     for (int k = 0; k <= 3; k++) {
@@ -422,7 +400,6 @@ public class GameBoard extends Token {
                         ms.setY(y - k);
 
                         if (isRedToken(x, y)) {
-
                             if (isFollowing(x, y)) {
                                 red++;
                                 if (isWinning(red)) {
@@ -431,9 +408,7 @@ public class GameBoard extends Token {
                             } else if (isNotFollowing(x, y)) {
                                 red--;
                             }
-
                         } else if (isBlueToken(x, y)) {
-
                             if (isFollowing(x, y)) {
                                 blue++;
                                 if (isWinning(blue)) {
@@ -447,7 +422,6 @@ public class GameBoard extends Token {
                 }
             }
         }
-
         return 0;
     }
 
