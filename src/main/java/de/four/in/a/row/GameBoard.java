@@ -14,6 +14,7 @@ import javax.swing.JFrame;
  * TODO: A third player with a different color
  * TODO: Multiplayer
  * TODO: Solver to play against
+ * TODO: Click on Numbers 1 to 8 to throw in tokens
  *
  * @author Martin Moors
  */
